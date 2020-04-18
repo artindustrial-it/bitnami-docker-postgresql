@@ -1,3 +1,11 @@
+# Postgres image with pre-imported database 
+
+This is a fork of the postgres bitnami images ( https://github.com/bitnami/bitnami-docker-postgresql )
+It was adapted to create a postgres image that has no volume at the /bitnami/postgres location and can therefor be used to put an actually imported database into an image.
+This allows for very simple integration testing with a database: just pull the image, fire it up, and you have a full database.
+
+official documentation folows: 
+
 # What is PostgreSQL?
 
 > [PostgreSQL](http://www.postgresql.org) is an object-relational database management system (ORDBMS) with an emphasis on extensibility and on standards-compliance [[source]](https://en.wikipedia.org/wiki/PostgreSQL).
