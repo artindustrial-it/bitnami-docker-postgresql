@@ -18,6 +18,7 @@ RUN update-locale LANG=C.UTF-8 LC_MESSAGES=POSIX && \
     DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
 RUN echo 'en_GB.UTF-8 UTF-8' >> /etc/locale.gen && locale-gen
 RUN echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen && locale-gen
+RUN echo 'de_DE.UTF-8 UTF-8' >> /etc/locale.gen && locale-gen
 
 COPY rootfs /
 RUN /opt/bitnami/scripts/postgresql/postunpack.sh
@@ -29,7 +30,8 @@ ENV BITNAMI_APP_NAME="postgresql" \
     NSS_WRAPPER_LIB="/opt/bitnami/common/lib/libnss_wrapper.so" \
     PATH="/opt/bitnami/postgresql/bin:/opt/bitnami/common/bin:$PATH"
 
-VOLUME [ "/bitnami/postgresql", "/docker-entrypoint-initdb.d", "/docker-entrypoint-preinitdb.d" ]
+# VOLUME [ "/bitnami/postgresql", "/docker-entrypoint-initdb.d", "/docker-entrypoint-preinitdb.d" ]
+ADD export/postgres-data-dfp.tgz /bitnami/postgresql/
 
 EXPOSE 5432
 
