@@ -31,7 +31,7 @@ ENV BITNAMI_APP_NAME="postgresql" \
     PATH="/opt/bitnami/postgresql/bin:/opt/bitnami/common/bin:$PATH"
 
 # VOLUME [ "/bitnami/postgresql", "/docker-entrypoint-initdb.d", "/docker-entrypoint-preinitdb.d" ]
-ADD export/postgres-data-dfp.tgz /bitnami/postgresql/
+ADD postgres-data-dfp.tgz /bitnami/postgresql/
 
 EXPOSE 5432
 
